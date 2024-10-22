@@ -11,4 +11,12 @@ class OrderController extends Controller
     {
         return view('form1');
     }
+
+    public function store()
+    {
+        $ordermaterial = Order::create([
+            'Work_order_number' => $request->input('orderNum'),
+            'date' => $request->input('date')
+        ]);
+    }
 }

@@ -11,4 +11,12 @@ class MaterialController extends Controller
     {
         return view('form2');
     }
+
+    public function store()
+    {
+        $ordermaterial = Material::create([
+            'name' => $request->input('materialName'),
+            'days' => $request->input('days'),
+        ]);
+    }
 }
