@@ -27,4 +27,13 @@ class OrderMaterialController extends Controller
             'materials' => $Materials
         ]);
     }
+
+    public function store()
+    {
+        $ordermaterial = OrderMaterial::create([
+            'Work_order_number' => $request->input('orderNum'),
+            'materials' => $request->input('materials'),
+            'percentage' => $request->input('percentage'),
+        ]);
+    }
 }
