@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Material extends Model
 {
@@ -13,5 +14,8 @@ class Material extends Model
         'days'
     ];
 
-    
+    public function OrderMaterial() : HasMany 
+    {
+        return $this->HasMany(OrderMaterial::class);
+    }
 }
