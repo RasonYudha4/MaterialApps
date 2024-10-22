@@ -31,6 +31,12 @@ return [
 
     'connections' => [
 
+        'mongodb' => [
+            'driver' => 'mongodb',
+            'dsn' => env('DB_URI', 'mongodb+srv://rasonyudha921:<db_password>@cluster0.i0qgf.mongodb.net/'),
+            'database' => 'main',
+        ],
+        
         'sqlite' => [
             'driver' => 'sqlite',
             'url' => env('DB_URL'),
