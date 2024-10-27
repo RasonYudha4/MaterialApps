@@ -15,8 +15,8 @@ class Material extends Model
     ];
 
     public $timestamps = false;
-    public function OrderMaterial() : HasMany 
+    public function orderMaterials() : HasMany 
     {
-        return $this->HasMany(OrderMaterial::class);
+        return $this->HasMany(OrderMaterial::class, 'orderId');
     }
 }

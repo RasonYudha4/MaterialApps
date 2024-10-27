@@ -14,16 +14,17 @@ class OrderMaterial extends Model
     protected $fillable = [
         'orderId',
         'materialId',
-        'Percentage'
+        'Percentage',
+        'Finished_date'
     ];
 
-    public function Order(): BelongsTo
+    public function order(): BelongsTo
     {
-        return $this->belongsTo(Order::class);
+        return $this->belongsTo(Order::class, 'orderId');
     }
 
-    public function Material(): BelongsTo
+    public function material(): BelongsTo
     {
-        return $this->belongsTo(Material::class);
+        return $this->belongsTo(Material::class, 'materialId');
     }
 }

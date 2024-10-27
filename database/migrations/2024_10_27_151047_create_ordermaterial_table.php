@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreign('materialId')->references('id')->on('materials')->onDelete('cascade');
             $table->foreign('orderId')->references('Work_order_number')->on('order')->onDelete('cascade');
             $table->integer('Percentage');
+            $table->date('Finished_date');
         });
     }
 
