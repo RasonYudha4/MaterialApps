@@ -11,5 +11,6 @@ Route::post('/form1',[OrderController::class,'store']);
 Route::get('/form2',[MaterialController::class,'create']);
 Route::post('/form2',[MaterialController::class, 'store']);
 Route::get('/form3',[OrderMaterialController::class,'create']);
+Route::post('/form3',[OrderMaterialController::class,'store']);
 
 

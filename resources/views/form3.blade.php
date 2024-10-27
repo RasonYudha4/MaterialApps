@@ -8,16 +8,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body>
-<div class="flex justify-center mt-10 ml-[600px] mr-[600px] rounded-lg shadow-lg h-[300px] border-2">
+<body class="m-0 p-0">
+<div class="flex justify-center mt-10 mx-auto mr-[600px] rounded-lg shadow-lg w-[400px] h-[300px] border-2">
     <form action="{{ url('/form3') }}" method="POST">
         @csrf
         <h1 class="font-bold text-center text-[20px] mb-[23px]">Material Order</h1>
         
         <label>Work Order Number:</label>
-        <p id="work_order_number"></p> <!-- Change ID to work_order_number -->
+        <select name="work_order_number" id="orderNo" required>
+        @foreach($orders as $order)
+            <option value="{{ $order->id }}">{{ $order->Work_order_number }}</option>
+        @endforeach
+        </select>
         
-        <label>Material:</label>
+        <label class="block">Material:</label>
         @foreach($materials as $material)
             <label class="block">
                 <input type="checkbox" name="material_id" onclick="toggleInput('material1', this)"

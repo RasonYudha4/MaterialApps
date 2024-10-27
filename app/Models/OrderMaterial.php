@@ -10,6 +10,8 @@ class OrderMaterial extends Model
     protected $table = 'ordermaterial';
 
     protected $fillable = [
+        'work_order_number',
+        'materialId',
         'Percentage'
     ];
 

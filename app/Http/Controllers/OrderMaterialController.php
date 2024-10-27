@@ -12,10 +12,8 @@ class OrderMaterialController extends Controller
     public function create(Request $request) 
     {
     
-        // $Orders = Order::all();
+        $Orders = Order::all();
         $Materials = Material::all();
-        $orderId = session('Work_order_number');
-        // $order = Order::find($orderId);
     
         // $order = Order::find($request->input('work_order_number')); 
     
@@ -28,15 +26,13 @@ class OrderMaterialController extends Controller
 
         return view('form3', [
             'materials' => $Materials,
-            'order' => $orderId
+            'orders' => $Orders
         ]);
     }
     
 
     public function store(Request $request)
     {
-        $orderId = session('work_number');
-
         $request->validate([
             'order_number' => 'required',
             'material_id' => 'required',
@@ -45,7 +41,7 @@ class OrderMaterialController extends Controller
 
         OrderMaterial::create([
             'order_number' => $orderId,
-            'material_id' => $request->input('material_id'),
+            'materialId' => $request->input('material_id'),
             'percentage' => $request->input('percentage'),
         ]);
 
