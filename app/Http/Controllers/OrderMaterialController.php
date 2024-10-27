@@ -9,31 +9,46 @@ use App\Models\Material;
 
 class OrderMaterialController extends Controller
 {
-    public function index(Request $request) 
+    public function create(Request $request) 
     {
-        $materials = Material::all();
-        return view('materials', [
-            'materials' => $materials
-        ]);
-    }
-
-    public function create() 
-    {
-        $Orders = Order::all();
+    
+        // $Orders = Order::all();
         $Materials = Material::all();
+        $orderId = session('Work_order_number');
+        // $order = Order::find($orderId);
+    
+        // $order = Order::find($request->input('work_order_number')); 
+    
+        // return view('form3', [
+        //     'orders' => $Orders,
+        //     'materials' => $Materials,
+        //     'order' => $order, 
+        // ]);
+
 
         return view('form3', [
-            'orders' => $Orders,
-            'materials' => $Materials
+            'materials' => $Materials,
+            'order' => $orderId
         ]);
     }
+    
 
-    public function store()
+    public function store(Request $request)
     {
-        $ordermaterial = OrderMaterial::create([
-            'Work_order_number' => $request->input('orderNum'),
-            'materials' => $request->input('materials'),
+        $orderId = session('work_number');
+
+        $request->validate([
+            'order_number' => 'required',
+            'material_id' => 'required',
+            'percentage' => 'required|integer|min:1|max:100',
+        ]);
+
+        OrderMaterial::create([
+            'order_number' => $orderId,
+            'material_id' => $request->input('material_id'),
             'percentage' => $request->input('percentage'),
         ]);
+
+        return redirect('/form3');
     }
 }

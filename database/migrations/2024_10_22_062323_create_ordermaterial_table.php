@@ -12,6 +12,8 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('ordermaterial', function (Blueprint $table) {
+            $table->unsignedBigInteger('materialId');
+            $table->unsignedBigInteger('Work_order_number');
             $table->foreign('materialId')->references('id')->on('materials')->onDelete('cascade');
             $table->foreign('Work_order_number')->references('Work_order_number')->on('order')->onDelete('cascade');
             $table->integer('Percentage');

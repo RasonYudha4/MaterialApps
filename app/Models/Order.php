@@ -13,7 +13,7 @@ class Order extends Model
         'Client',
         'Work_date'
     ];
-
+    public $timestamps = false;
     public function OrderMaterial() : HasMany 
     {
         return $this->HasMany(OrderMaterial::class);
