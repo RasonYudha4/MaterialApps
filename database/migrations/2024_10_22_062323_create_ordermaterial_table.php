@@ -13,11 +13,10 @@ return new class extends Migration
     {
         Schema::create('ordermaterial', function (Blueprint $table) {
             $table->unsignedBigInteger('materialId');
-            $table->unsignedBigInteger('Work_order_number');
+            $table->unsignedBigInteger('orderId');
             $table->foreign('materialId')->references('id')->on('materials')->onDelete('cascade');
-            $table->foreign('Work_order_number')->references('Work_order_number')->on('order')->onDelete('cascade');
+            $table->foreign('orderId')->references('Work_order_number')->on('order')->onDelete('cascade');
             $table->integer('Percentage');
-            $table->date('Finished_Date');
         });
     }
 

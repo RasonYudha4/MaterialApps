@@ -21,6 +21,6 @@
                 'Work_date' => $request->input('Work_date'),
             ]);
         
-            return redirect(url('/form2'))->with('Work_order_number', $data->Work_order_number);
+            return redirect(url('/form3'));
         }
     }

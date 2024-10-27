@@ -19,6 +19,6 @@ class MaterialController extends Controller
             'names' => $request->input('material_name'),
             'days' => $request->input('days')
         ]);
-        return redirect('/form3');
+        return back();
     }
 }

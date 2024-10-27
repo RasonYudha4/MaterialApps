@@ -5,7 +5,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\MaterialController;
 use App\Http\Controllers\OrderMaterialController;
+use App\Http\Controllers\HomeController;
 
+
+Route::get('/', [HomeController::class, 'create']);
 Route::get('/form1',[OrderController::class,'create']);
 Route::post('/form1',[OrderController::class,'store']);
 Route::get('/form2',[MaterialController::class,'create']);

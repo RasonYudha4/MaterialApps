@@ -9,24 +9,23 @@
 </head>
 
 <body class="m-0 p-0">
-<div class="flex justify-center mt-10 mx-auto mr-[600px] rounded-lg shadow-lg w-[400px] h-[300px] border-2">
+<div class="flex justify-center mt-10 mx-auto mr-[600px] rounded-lg shadow-lg w-[400px] h-[500px] border-2">
     <form action="{{ url('/form3') }}" method="POST">
         @csrf
         <h1 class="font-bold text-center text-[20px] mb-[23px]">Material Order</h1>
         
         <label>Work Order Number:</label>
-        <select name="work_order_number" id="orderNo" required>
+        <select name="order_id" id="order_id" required>
         @foreach($orders as $order)
-            <option value="{{ $order->id }}">{{ $order->Work_order_number }}</option>
+            <option value="{{ $order->Work_order_number }}">{{ $order->Work_order_number }}</option>
         @endforeach
         </select>
         
         <label class="block">Material:</label>
         @foreach($materials as $material)
-            <label class="block">
-                <input type="checkbox" name="material_id" onclick="toggleInput('material1', this)"
-                    value="{{$material->id}}" /> {{$material->names}}
-            </label>
+        <label class="block">
+            <input type="radio" name="material_id" value="{{ $material->id }}"  required/> {{ $material->names }}
+        </label>
         @endforeach
         <br>
         <label>Percentage:</label>
