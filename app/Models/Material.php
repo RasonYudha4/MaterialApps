@@ -14,6 +14,7 @@ class Material extends Model
         'days'
     ];
 
+    public $timestamps = false;
     public function OrderMaterial() : HasMany 
     {
         return $this->HasMany(OrderMaterial::class);

@@ -9,7 +9,11 @@ class OrderMaterial extends Model
 {
     protected $table = 'ordermaterial';
 
+    public $timestamps = false;
+
     protected $fillable = [
+        'orderId',
+        'materialId',
         'Percentage'
     ];
 

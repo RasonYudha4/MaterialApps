@@ -1,22 +1,26 @@
 <?php
 
-namespace App\Http\Controllers;
+    namespace App\Http\Controllers;
+    use Illuminate\Support\Facades\Cookie;
+    use Illuminate\Http\Request;
+    use App\Models\Order;
+    
 
-use Illuminate\Http\Request;
-use App\Models\Order;
-
-class OrderController extends Controller
-{
-    public function create() 
+    class OrderController extends Controller
     {
-        return view('form1');
-    }
+        public function create() 
+        {
+            
+            return view('form1');
+        }
 
-    public function store()
-    {
-        $ordermaterial = Order::create([
-            'Work_order_number' => $request->input('orderNum'),
-            'date' => $request->input('date')
-        ]);
+        public function store(Request $request)
+        {
+            $data = Order::create([
+                'Client' => $request->input('Client'),
+                'Work_date' => $request->input('Work_date'),
+            ]);
+        
+            return redirect(url('/form3'));
+        }
     }
-}
