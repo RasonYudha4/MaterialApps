@@ -17,9 +17,6 @@
             <input type="date" name="Work_date" class="border-2" required/>
             <button type="submit" class="block bg-blue-400 py-2 rounded-lg w-full uppercase font-bold transition duration-300 mt-[6px]">Submit</button>
         </form>
-        @if(session('Work'))
-        <div>{{session('Work_order_number')}}</div> 
-        @endif
     </div>
 </body>
 </html>
